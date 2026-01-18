@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telecom Churn Prediction</title>
+</head>
+<body>
+
+<h2>Telecom Customer Churn Prediction</h2>
+
+<form method="POST">
+
+    <label>Tenure (months)</label><br>
+    <input type="number" name="tenure" required><br><br>
+
+    <label>Monthly Charges</label><br>
+    <input type="number" step="any" name="monthly_charges" required><br><br>
+
+    <label>Total Charges</label><br>
+    <input type="number" step="any" name="total_charges" required><br><br>
+
+    <label>Contract Type</label><br>
+    <select name="contract">
+        <option value="Month-to-month">Month-to-month</option>
+        <option value="One year">One year</option>
+        <option value="Two year">Two year</option>
+    </select><br><br>
+
+    <label>Internet Service</label><br>
+    <select name="internet">
+        <option value="Fiber optic">Fiber optic</option>
+        <option value="DSL">DSL</option>
+    </select><br><br>
+
+    <label>Paperless Billing</label><br>
+    <select name="paperless">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
+
+    <label>Senior Citizen</label><br>
+    <select name="senior">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
+
+    <label>Partner</label><br>
+    <select name="partner">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
+
+    <label>Dependents</label><br>
+    <select name="dependents">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
+
+    <button type="submit">Predict Churn</button>
+
+</form>
+
+{% if prediction %}
+    <h3>{{ prediction }}</h3>
+{% endif %}
+
+</body>
+</html>
