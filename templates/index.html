@@ -2,66 +2,126 @@
 <html>
 <head>
     <title>Telecom Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        .container {
+            width: 420px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Telecom Customer Churn Prediction</h2>
+<div class="container">
 
-<form method="POST">
+    <h2>Telecom Customer Churn Prediction</h2>
 
-    <label>Tenure (months)</label><br>
-    <input type="number" name="tenure" required><br><br>
+    <form method="POST">
 
-    <label>Monthly Charges</label><br>
-    <input type="number" step="any" name="monthly_charges" required><br><br>
+        <label>Tenure (months)</label>
+        <input type="number" name="tenure" required>
 
-    <label>Total Charges</label><br>
-    <input type="number" step="any" name="total_charges" required><br><br>
+        <label>Monthly Charges</label>
+        <input type="number" step="any" name="monthly_charges" required>
 
-    <label>Contract Type</label><br>
-    <select name="contract">
-        <option value="Month-to-month">Month-to-month</option>
-        <option value="One year">One year</option>
-        <option value="Two year">Two year</option>
-    </select><br><br>
+        <label>Total Charges</label>
+        <input type="number" step="any" name="total_charges" required>
 
-    <label>Internet Service</label><br>
-    <select name="internet">
-        <option value="Fiber optic">Fiber optic</option>
-        <option value="DSL">DSL</option>
-    </select><br><br>
+        <label>Contract Type</label>
+        <select name="contract">
+            <option value="Month-to-month">Month-to-month</option>
+            <option value="One year">One year</option>
+            <option value="Two year">Two year</option>
+        </select>
 
-    <label>Paperless Billing</label><br>
-    <select name="paperless">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select><br><br>
+        <label>Internet Service</label>
+        <select name="internet">
+            <option value="Fiber optic">Fiber optic</option>
+            <option value="DSL">DSL</option>
+        </select>
 
-    <label>Senior Citizen</label><br>
-    <select name="senior">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select><br><br>
+        <label>Paperless Billing</label>
+        <select name="paperless">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
 
-    <label>Partner</label><br>
-    <select name="partner">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select><br><br>
+        <label>Senior Citizen</label>
+        <select name="senior">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
 
-    <label>Dependents</label><br>
-    <select name="dependents">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select><br><br>
+        <label>Partner</label>
+        <select name="partner">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
 
-    <button type="submit">Predict Churn</button>
+        <label>Dependents</label>
+        <select name="dependents">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
 
-</form>
+        <button type="submit">Predict Churn</button>
+    </form>
 
-{% if prediction %}
-    <h3>{{ prediction }}</h3>
-{% endif %}
+    {% if prediction %}
+        <div class="result">
+            {{ prediction }}
+        </div>
+    {% endif %}
+
+</div>
 
 </body>
 </html>
