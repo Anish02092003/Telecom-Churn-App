@@ -75,6 +75,8 @@ telecom-churn/
 - Model serving using saved artifacts (`.pkl`)
 - Cloud hosting using **Render**
 - Ensured feature consistency during inference using saved feature mappings
+- ## Deployed Here --
+-  https://telecom-churn-app-go4q.onrender.com
 
 ---
 
