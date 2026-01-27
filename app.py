@@ -5,25 +5,17 @@ import numpy as np
 
 app = Flask(__name__)
 
-# ===============================
-# LOAD MODEL ARTIFACTS
-# ===============================
 model = pickle.load(open("models/churn_model.pkl", "rb"))
 scaler = pickle.load(open("models/scaler.pkl", "rb"))
 feature_names = pickle.load(open("models/feature_names.pkl", "rb"))
 
-# ===============================
-# HOME ROUTE
-# ===============================
 @app.route("/", methods=["GET", "POST"])
 def home():
     prediction = None
 
     if request.method == "POST":
 
-        # ---------------------------
-        # RAW USER INPUTS
-        # ---------------------------
+    
         tenure = int(request.form["tenure"])
         monthly_charges = float(request.form["monthly_charges"])
         total_charges = float(request.form["total_charges"])
@@ -35,9 +27,7 @@ def home():
         dependents = int(request.form["dependents"])
         senior = int(request.form["senior"])
 
-        # ---------------------------
-        # CREATE INPUT DATAFRAME
-        # ---------------------------
+        
         input_df = pd.DataFrame(0, index=[0], columns=feature_names, dtype=float)
 
         # Numerical features
@@ -59,9 +49,7 @@ def home():
         if internet_col in input_df.columns:
             input_df.loc[0, internet_col] = 1
 
-        # ---------------------------
-        # SCALE + PREDICT
-        # ---------------------------
+        
         scaled_input = scaler.transform(input_df)
         result = model.predict(scaled_input)[0]
 
@@ -72,4 +60,5 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
