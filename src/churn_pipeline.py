@@ -1,6 +1,3 @@
-# =========================================================
-# TELECOM CUSTOMER CHURN - END TO END PIPELINE
-# =========================================================
 
 import pandas as pd
 import numpy as np
@@ -13,9 +10,6 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report, roc_auc_score
 
 
-# =========================================================
-# 1. LOAD DATA
-# =========================================================
 def load_data(path):
     print("Loading dataset...")
     df = pd.read_csv(path)
@@ -23,9 +17,6 @@ def load_data(path):
     return df
 
 
-# =========================================================
-# 2. CLEAN DATA
-# =========================================================
 def clean_data(df):
     print("Cleaning data...")
 
@@ -73,9 +64,6 @@ def clean_data(df):
     return df
 
 
-# =========================================================
-# 3. FEATURE ENCODING
-# =========================================================
 def encode_features(df):
     print("Encoding categorical features...")
 
@@ -85,9 +73,6 @@ def encode_features(df):
     return df_encoded
 
 
-# =========================================================
-# 4. SPLIT & SCALE DATA
-# =========================================================
 def split_and_scale(df):
     print("Splitting and scaling data...")
 
@@ -109,9 +94,6 @@ def split_and_scale(df):
 
 
 
-# =========================================================
-# 5. TRAIN & EVALUATE MODELS
-# =========================================================
 def train_and_evaluate(X_train, X_test, y_train, y_test):
     print("Training models...\n")
 
@@ -144,9 +126,6 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     return best_model
 
 
-# =========================================================
-# 6. SAVE MODEL & SCALER
-# =========================================================
 def save_artifacts(model, scaler):
     print("Saving model and scaler...")
 
@@ -159,9 +138,7 @@ def save_artifacts(model, scaler):
     print("Model and scaler saved successfully\n")
 
 
-# =========================================================
-# 7. MAIN EXECUTION
-# =========================================================
+
 if __name__ == "__main__":
     df = load_data("data/telecom_churn.csv")
     df = clean_data(df)
@@ -176,3 +153,4 @@ if __name__ == "__main__":
 
 
     print("PIPELINE EXECUTED SUCCESSFULLY 🚀")
+
